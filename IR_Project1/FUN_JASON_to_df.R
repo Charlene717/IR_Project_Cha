@@ -10,12 +10,12 @@ JASON_to_df = function(input.datapath,Keyword){
   }
   jason.all$tweet_text <- gsub('^"|"$','',jason.all$tweet_text) # https://blog.csdn.net/Yann_YU/article/details/107232946 #https://r3dmaotech.blogspot.com/2016/04/r.html
  # jason.all$tweet_text <- gsub( "\\..*http.?$",".",jason.all$tweet_text)
- # jason.all$tweet_text <- gsub( "\\..*http.?$",".",jason.all$tweet_text)
   
   jason.all["CHAR"]=0
   jason.all["WORD"]=0
   jason.all["SENT"]=0
   jason.all["Search Word"]=0
+  jason.all["NO."]=0
   for (i in 1:length(jason.all[,1])) {
     jason.all[i,15] <- sum(nchar(jason.all[i,colnames(jason.all)=="tweet_text"], type = "chars", allowNA = T, keepNA = NA))
     
@@ -33,7 +33,8 @@ JASON_to_df = function(input.datapath,Keyword){
    # jason.all[i,17] <- length(gregexpr('[[:alnum:] ][.!?]', Twtext.All)[[1]])
    # jason.all[i,17] <- length(gregexpr('[[:alnum:] ][.!?]', Twtext.All_df[,2])[[1]])
     jason.all[i,18] <- length(as.data.frame(Keyword.df)[,2])
-
+    jason.all[i,19] <- i
+    
   }
   JASON.df <- jason.all
   

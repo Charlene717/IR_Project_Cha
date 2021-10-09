@@ -100,7 +100,7 @@ server = function(input, output, session){
       df_reactive_XML()[,c(1:3,6:9)]
     }else if(length(input$file1)==0 && length(input$file2)>0){
       # df_reactive_JASON()[,c(1,2,5,15,16,17,18)]
-      df_reactive_JASON()[,c(1,5,15,16,17,18)]
+      df_reactive_JASON()[,c(19,1,5,15,16,17,18)]
     }else{
       XML.df0 <- data.frame(matrix(nrow = 0,ncol = 8))
       colnames(XML.df0) <- c("NO.","ID","Time","Text","CHAR","WORD","SENT","Search Word")
