@@ -71,7 +71,7 @@ ui = tagList(
 
 After pressing the Run App button, we can see the following screen:
 
-![Untitled](IR%20Project%201%202ffa5c292d6c4914b39ad5363249df6a/Untitled.png)
+![Untitled](Untitled.png)
 
 After Loading the XML files or JSON files, we can have text-statistics and keyword search.
 
