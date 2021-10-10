@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this project, we can use the UI by R shiny to search the keywords and have  text-statistics for the PubMed XML files and Twitter JASON files.
+In this project, we search the keywords and have text-statistics for the PubMed XML files and Twitter JASON files by the UI of R shinyapp.
 
 We can directly visit the URL: [http://XXXXX](http://xxxxx/) to perform the above operations or have the following step in R:
 
@@ -70,7 +70,7 @@ After pressing the Run App button, we can see the following screen:
 
 After Loading the XML files or JSON files, we can have text-statistics and keyword search.
 
-Note: Only one file format can be entered at a time, and the page needs to be refreshed before importing files in different formats
+*Note: Only one file format can be entered at a time, and the page needs to be refreshed before importing files in different formats*
 
 - **Examples of XML files**
 
