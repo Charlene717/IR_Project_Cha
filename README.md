@@ -1,10 +1,5 @@
 # IR Project 1
 
-Created by: 張嘉容 P88071020
-Created time: October 10, 2021 3:52 PM
-Last edited time: October 10, 2021 4:32 PM
-Solved: No
-
 ## Introduction
 
 In this project, we can use the UI by R shiny to search the keywords and have  text-statistics for the PubMed XML files and Twitter JASON files.
