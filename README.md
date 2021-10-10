@@ -79,7 +79,7 @@ Note: Only one file format can be entered at a time, and the page needs to be re
 
 - **Examples of XML files**
 
-![Untitled](Untitled (1).png)
+![Untitled](IR_Project_Cha/IR_Project1/Fig/IRP1_02.png)
 
 - **Examples of JASON files**
 
