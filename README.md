@@ -71,7 +71,7 @@ ui = tagList(
 
 After pressing the Run App button, we can see the following screen:
 
-![Untitled](Untitled.png)
+![Untitled](https://github.com/Charlene717/IR_Project_Cha/blob/main/IR_Project1/Fig/IRP1_01.png)
 
 After Loading the XML files or JSON files, we can have text-statistics and keyword search.
 
@@ -79,8 +79,8 @@ Note: Only one file format can be entered at a time, and the page needs to be re
 
 - **Examples of XML files**
 
-![Untitled](IR_Project_Cha/IR_Project1/Fig/IRP1_02.png)
+![Untitled](https://github.com/Charlene717/IR_Project_Cha/blob/main/IR_Project1/Fig/IRP1_02.png)
 
 - **Examples of JASON files**
 
-![Untitled](Untitled (2).png)
+![Untitled](https://github.com/Charlene717/IR_Project_Cha/blob/main/IR_Project1/Fig/IRP1_03.png)
