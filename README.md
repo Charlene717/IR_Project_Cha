@@ -1,4 +1,4 @@
-# IR Project 1
+# IR Project
 
 ## Introduction
 
