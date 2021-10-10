@@ -79,8 +79,8 @@ Note: Only one file format can be entered at a time, and the page needs to be re
 
 - **Examples of XML files**
 
-![Untitled](IR%20Project%201%202ffa5c292d6c4914b39ad5363249df6a/Untitled%201.png)
+![Untitled](Untitled(1).png)
 
 - **Examples of JASON files**
 
-![Untitled](IR%20Project%201%202ffa5c292d6c4914b39ad5363249df6a/Untitled%202.png)
+![Untitled](Untitled(2).png)
