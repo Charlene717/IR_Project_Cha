@@ -32,7 +32,7 @@ ui = tagList(
     sidebarPanel(
       fileInput("file1", "Choose XML Files", accept = ".xml", multiple = T),
       fileInput("file2", "Choose JSON File", accept = ".json", multiple = T),
-      textInput("word_select", label = "Word to search","covid")
+      textInput("word_select", label = "Word to search")
     ),
     mainPanel(
       tableOutput("SumTable"),
