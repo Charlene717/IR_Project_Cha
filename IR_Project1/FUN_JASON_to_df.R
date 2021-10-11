@@ -9,7 +9,7 @@ try({
     jason.all <- rbind(jason.all,jason1)
     rm(jason1)
   }
-  jason.all$tweet_text <- gsub('^"|"$','',jason.all$tweet_text) # https://blog.csdn.net/Yann_YU/article/details/107232946 #https://r3dmaotech.blogspot.com/2016/04/r.html
+  jason.all$tweet_text <- gsub('^"|"$','',jason.all$tweet_text) 
  # jason.all$tweet_text <- gsub( "\\..*http.?$",".",jason.all$tweet_text)
   
   jason.all["CHAR"]=0

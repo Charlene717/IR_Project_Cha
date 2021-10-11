@@ -57,8 +57,7 @@ XML_to_df = function(input.datapath,Keyword){
             }
           }
           
-          Abstract.All2 <- gsub('=','',Abstract.All) # https://blog.csdn.net/Yann_YU/article/details/107232946 #https://r3dmaotech.blogspot.com/2016/04/r.html
-          
+          Abstract.All2 <- gsub('=','',Abstract.All) 
           
           Abstract.All_df <- tibble(line = 1:length(Abstract.All), text = Abstract.All)
 
