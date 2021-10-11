@@ -22,9 +22,6 @@ XML_to_df = function(input.datapath,Keyword){
       if (length(Abstract)==0 ) {
         XML.df[i,1] <- i
         XML.df[i,2] <- paste0("PMID: ",xml.all[[i]][["MedlineCitation"]][["PMID"]][["text"]])
-        # XML.df[i,2] <- paste0("PMID: ",xml.all[[i]][["MedlineCitation"]][[1]][["text"]])
-        
-        #   XML.df[i,2] <- paste0("PMID: ",xml.all[[i]][["PubmedArticle"]][["PubmedData"]][["ArticleIdList"]][["ArticleId"]][["text"]])
         XML.df[i,3] <- xml.all[[i]][["MedlineCitation"]][["Article"]][["Journal"]][["JournalIssue"]][["PubDate"]][["Year"]]
         XML.df[i,4] <- xml.all[[i]][["MedlineCitation"]][["Article"]][["ArticleTitle"]]
         XML.df[i,5:9] <- 0
@@ -33,21 +30,29 @@ XML_to_df = function(input.datapath,Keyword){
         try({
           if (length(Abstract)==1) {
             Abstract.All <- str_c(Abstract[["AbstractText"]], collapse = " ") 
+            # Abstract.All <- Abstract[["AbstractText"]] %>% str_c(.,collapse=" ")
           }else {
             if (length(Abstract[["CopyrightInformation"]])==1) {
 
               #Abstract.All <- Abstract[[1]][["text"]]
               Abstract.All <- ""
               for (j in 1:(length(Abstract)-1)) {
-              Abstract.All <- paste0(Abstract.All," ", str_c(Abstract[[j]][["text"]],collapse=" "))}
+                if (class(Abstract[[j]])!='character') {
+              names(Abstract[[j]])[names(Abstract[[j]]) %in% c("i","b")] <- "text" 
+              Abstract.All <- paste0(Abstract.All," ", str_c(as.character(Abstract[[j]][["text"]]),collapse=" "))
+              
+               }else {
+              Abstract.All <- paste0(Abstract.All," ", Abstract[[j]])}
               Abstract.All <- gsub("^\\s", "", Abstract.All)
               
+               }
             }else {
               
                                   
               Abstract.All <- ""
               for (j in 1:(length(Abstract))) {
-              Abstract.All <- paste0(Abstract.All," ", str_c(Abstract[[j]][["text"]],collapse=" "))}
+              names(Abstract[[j]])[names(Abstract[[j]]) %in% c("i","b")] <- "text" 
+              Abstract.All <- paste0(Abstract.All," ", str_c(as.character(Abstract[[j]][["text"]]),collapse=" "))}
               Abstract.All <- gsub("^\\s", "", Abstract.All)
             }
           }
@@ -57,10 +62,10 @@ XML_to_df = function(input.datapath,Keyword){
           
           Abstract.All_df <- tibble(line = 1:length(Abstract.All), text = Abstract.All)
 
-          try({
+
           Abstract.All_df %>%
             unnest_tokens(word, text) -> Abstract.All_df.Word
-          })
+
           # Abstract.All_df <- strsplit(Abstract.All, " ")
           # Abstract.All_df.Word <- as.data.frame(Abstract.All_df)
           # Abstract.All_df.Word <- as.data.frame(str_replace_all(Abstract.All_df.Word[,1], "[[:punct:]]", " ")) # https://cloud.tencent.com/developer/ask/44882
@@ -69,11 +74,10 @@ XML_to_df = function(input.datapath,Keyword){
         
         Abstract.All_df.Word2 <- as.data.frame(Abstract.All_df.Word)
         Keyword.df <- Abstract.All_df.Word2[Abstract.All_df.Word2[,2] %in% c(Keyword,tolower(Keyword),toupper(Keyword),capitalize(Keyword)),]
+
         # Fill the statistic result to df
         XML.df[i,1] <- i
         XML.df[i,2] <- paste0("PMID: ",xml.all[[i]][["MedlineCitation"]][["PMID"]][["text"]])
-        #  XML.df[i,2] <- paste0("PMID: ",xml.all[[i]][["PubmedArticle"]][["PubmedData"]][["ArticleIdList"]][["ArticleId"]][["text"]])
-        
         XML.df[i,3] <- xml.all[[i]][["MedlineCitation"]][["Article"]][["Journal"]][["JournalIssue"]][["PubDate"]][["Year"]]
         XML.df[i,4] <- xml.all[[i]][["MedlineCitation"]][["Article"]][["ArticleTitle"]]
         
