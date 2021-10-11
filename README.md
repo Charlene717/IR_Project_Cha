@@ -80,3 +80,33 @@ After Loading the XML files or JSON files, the text-statistics result(such as nu
 
 ![Untitled](https://github.com/Charlene717/IR_Project_Cha/blob/main/IR_Project1/Fig/IRP1_03.png)
 
+
+### Reference
+
+**Tutorial - Shiny**
+
+[https://shiny.rstudio.com/tutorial/](https://shiny.rstudio.com/tutorial/)
+
+R Shiny: How to color margin of title panel?
+
+[https://stackoverflow.com/questions/57037758/r-shiny-how-to-color-margin-of-title-panel](https://stackoverflow.com/questions/57037758/r-shiny-how-to-color-margin-of-title-panel)
+
+Highlight word in DT in shiny based on regex
+
+[https://newbedev.com/highlight-word-in-dt-in-shiny-based-on-regex](https://newbedev.com/highlight-word-in-dt-in-shiny-based-on-regex)
+
+如何删除R中字符串中的所有特殊字符？
+
+[https://cloud.tencent.com/developer/ask/44882](https://cloud.tencent.com/developer/ask/44882)
+
+**Count the Number of Characters (or Bytes or Width)**
+
+[https://stat.ethz.ch/R-manual/R-devel/library/base/html/nchar.html](https://stat.ethz.ch/R-manual/R-devel/library/base/html/nchar.html)
+
+**How to count the number of words in a string in R?**
+
+[https://www.tutorialspoint.com/how-to-count-the-number-of-words-in-a-string-in-r](https://www.tutorialspoint.com/how-to-count-the-number-of-words-in-a-string-in-r)
+
+**nsentence: Count the number of sentences**
+
+[https://rdrr.io/cran/quanteda/man/nsentence.html](https://rdrr.io/cran/quanteda/man/nsentence.html)
