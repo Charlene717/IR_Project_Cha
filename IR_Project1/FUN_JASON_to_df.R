@@ -1,6 +1,7 @@
 library(jsonlite)
 
 JASON_to_df = function(input.datapath,Keyword){
+try({  
 ##### JASON to df #####
   jason.all <- list()
   for (k in 1:length(input.datapath)) {
@@ -17,6 +18,7 @@ JASON_to_df = function(input.datapath,Keyword){
   jason.all["Search Word"]=0
   jason.all["NO."]=0
   for (i in 1:length(jason.all[,1])) {
+    try({
     jason.all[i,15] <- sum(nchar(jason.all[i,colnames(jason.all)=="tweet_text"], type = "chars", allowNA = T, keepNA = NA))
     
     Twtext.All <- jason.all[i,colnames(jason.all)=="tweet_text"]
@@ -34,9 +36,9 @@ JASON_to_df = function(input.datapath,Keyword){
    # jason.all[i,17] <- length(gregexpr('[[:alnum:] ][.!?]', Twtext.All_df[,2])[[1]])
     jason.all[i,18] <- length(as.data.frame(Keyword.df)[,2])
     jason.all[i,19] <- i
-    
+    })
   }
   JASON.df <- jason.all
-  
+})  
 return(JASON.df)
 }

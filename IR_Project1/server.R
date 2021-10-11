@@ -122,11 +122,8 @@ server = function(input, output, session){
         mutate_all(~ gsub(
           paste(c("\\b(", input$word_select, ")\\b"), collapse = ""),
           "<span style='background-color:#d0d1ff;color:#7251b5;font-family: Calibra, Arial Black;'>\\1</span>", # font-family: Lobster, cursive
-          .,
-          TRUE,
-          TRUE
-        )
-        )
+          ., TRUE, TRUE ))
+      
     }else if(length(input$file1)==0 && length(input$file2)>0){
       JASON.df <- JASON_to_df(input$file2$datapath,input$word_select)
       JASON.df[,c(1,2,4,5,6)] %>%
@@ -136,11 +133,8 @@ server = function(input, output, session){
         mutate_all(~ gsub(
           paste(c("\\b(", input$word_select, ")\\b"), collapse = ""),
           "<span style='background-color:#e9d8a6;color:#005f73;font-family: Calibra, Arial Black;'>\\1</span>",
-          .,
-          TRUE,
-          TRUE
-        )
-        )
+          ., TRUE, TRUE ))
+      
     }else{
       XML.df0 <- data.frame(matrix(nrow = 0,ncol = 3))
       colnames(XML.df0) <- c("PMID","Title","Abstract")
@@ -151,7 +145,5 @@ server = function(input, output, session){
   output$table <- renderDataTable({
     datatable(df_reactive_HL(), escape = F, options = list(searchHighlight = TRUE,dom = "lt"))
   })
-  
-  
-  
+
 }
