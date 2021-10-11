@@ -68,7 +68,7 @@ After pressing the Run App button, we can see the following screen:
 
 ![Untitled](https://github.com/Charlene717/IR_Project_Cha/blob/main/IR_Project1/Fig/IRP1_01.png)
 
-After Loading the XML files or JSON files, the text-statistics result are shown as following, we can also search the words that we are intersted by the search box.
+After Loading the XML files or JSON files, the text-statistics result(such as number of characters, number of words, number of sentences(EOS), etc.) are shown as following, we can also search the words that we are interested by the search box.
 
 *Note: Only one file format can be entered at a time, and the page needs to be refreshed before importing files in different formats*
 
