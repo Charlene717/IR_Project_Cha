@@ -79,3 +79,5 @@ After Loading the XML files or JSON files, the text-statistics result are shown 
 - **Examples of JASON files**
 
 ![Untitled](https://github.com/Charlene717/IR_Project_Cha/blob/main/IR_Project1/Fig/IRP1_03.png)
+
+# Thank you
