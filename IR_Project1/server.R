@@ -4,7 +4,7 @@ server = function(input, output, session){
 #####  Function setting ##### 
   
   ## Call function
-  # Import R files in the same folder
+  # Put R files in the same folder
   filePath <- ""
   getFilePath <- function(fileName) {
     path <- setwd(getwd())   # path <- setwd("~") # Absolute path of project folder
@@ -99,7 +99,6 @@ server = function(input, output, session){
     if (length(input$file1)>0 && length(input$file2)==0){
       df_reactive_XML()[,c(1:3,6:9)]
     }else if(length(input$file1)==0 && length(input$file2)>0){
-      # df_reactive_JASON()[,c(1,2,5,15,16,17,18)]
       df_reactive_JASON()[,c(19,1,5,15,16,17,18)]
     }else{
       XML.df0 <- data.frame(matrix(nrow = 0,ncol = 8))
@@ -111,14 +110,14 @@ server = function(input, output, session){
 
   
 ##### Searching the Keywords #####
-  # https://newbedev.com/highlight-word-in-dt-in-shiny-based-on-regex
+  # Reference # https://newbedev.com/highlight-word-in-dt-in-shiny-based-on-regex
   df_reactive_HL = reactive({
     if(length(input$file1)>0 && length(input$file2)==0){
       XML.df.Hl <- XML_to_df(input$file1$datapath,input$word_select)
       XML.df.Hl[,c(2,4,5)] %>%
         # Filter if input is anywhere, even in other words.
         filter_all(any_vars(grepl(input$word_select, ., T, T))) %>% 
-        # Replace complete words with same in HTML.
+        # Replace complete words with same in XML.
         mutate_all(~ gsub(
           paste(c("\\b(", input$word_select, ")\\b"), collapse = ""),
           "<span style='background-color:#d0d1ff;color:#7251b5;font-family: Calibra, Arial Black;'>\\1</span>", # font-family: Lobster, cursive

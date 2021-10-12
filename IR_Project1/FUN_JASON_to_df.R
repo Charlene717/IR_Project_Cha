@@ -28,12 +28,9 @@ try({
     
     Twtext.All_df.Word2 <- as.data.frame(Twtext.All_df.Word)
     Keyword.df <- Twtext.All_df.Word2[Twtext.All_df.Word2[,2] %in% c(Keyword,tolower(Keyword),toupper(Keyword),capitalize(Keyword)),]
-    
-   # jason.all[i,16] <- length(as.data.frame(Twtext.All_df.Word)[,2])
+
     jason.all[i,16] <- sapply(str_split(Twtext.All, " "), length)
     jason.all[i,17] <- nsentence(Twtext.All) # https://rdrr.io/cran/quanteda/man/nsentence.html
-   # jason.all[i,17] <- length(gregexpr('[[:alnum:] ][.!?]', Twtext.All)[[1]])
-   # jason.all[i,17] <- length(gregexpr('[[:alnum:] ][.!?]', Twtext.All_df[,2])[[1]])
     jason.all[i,18] <- length(as.data.frame(Keyword.df)[,2])
     jason.all[i,19] <- i
     })

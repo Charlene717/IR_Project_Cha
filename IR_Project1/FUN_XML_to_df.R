@@ -33,8 +33,6 @@ XML_to_df = function(input.datapath,Keyword){
             # Abstract.All <- Abstract[["AbstractText"]] %>% str_c(.,collapse=" ")
           }else {
             if (length(Abstract[["CopyrightInformation"]])==1) {
-
-              #Abstract.All <- Abstract[[1]][["text"]]
               Abstract.All <- ""
               for (j in 1:(length(Abstract)-1)) {
                 if (class(Abstract[[j]])!='character') {
@@ -61,16 +59,9 @@ XML_to_df = function(input.datapath,Keyword){
           
           Abstract.All_df <- tibble(line = 1:length(Abstract.All), text = Abstract.All)
 
-
           Abstract.All_df %>%
             unnest_tokens(word, text) -> Abstract.All_df.Word
 
-          # Abstract.All_df <- strsplit(Abstract.All, " ")
-          # Abstract.All_df.Word <- as.data.frame(Abstract.All_df)
-          # Abstract.All_df.Word <- as.data.frame(str_replace_all(Abstract.All_df.Word[,1], "[[:punct:]]", " ")) # https://cloud.tencent.com/developer/ask/44882
-          # Abstract.All_df.Word <- data.frame(1,Abstract.All_df.Word)
-          # colnames(Abstract.All_df.Word) <- c("line", "word")
-        
         Abstract.All_df.Word2 <- as.data.frame(Abstract.All_df.Word)
         Keyword.df <- Abstract.All_df.Word2[Abstract.All_df.Word2[,2] %in% c(Keyword,tolower(Keyword),toupper(Keyword),capitalize(Keyword)),]
 
@@ -87,13 +78,8 @@ XML_to_df = function(input.datapath,Keyword){
         XML.df[i,5] <- Abstract.All.paste0
         
         XML.df[i,6] <- sum(nchar(Abstract.All, type = "chars", allowNA = T, keepNA = NA))  # https://stat.ethz.ch/R-manual/R-devel/library/base/html/nchar.html
-        #  XML.df[i,7] <- length(as.data.frame(Abstract.All_df.Word)[,2])
         XML.df[i,7] <- sapply(str_split(Abstract.All, " "), length) # https://www.tutorialspoint.com/how-to-count-the-number-of-words-in-a-string-in-r
-        #    Abstract.All2.EX <- gsub('^\\d&\\.$','',Abstract.All2) # https://blog.csdn.net/Yann_YU/article/details/107232946 #https://r3dmaotech.blogspot.com/2016/04/r.html
-        
         XML.df[i,8] <- nsentence(Abstract.All2)  # https://rdrr.io/cran/quanteda/man/nsentence.html
-        #  XML.df[i,8] <- length(gregexpr('[[:alnum:] ][.!?]', Abstract.All)[[1]])
-        
         XML.df[i,9] <- length(as.data.frame(Keyword.df)[,2])
         rm(Abstract.All,Abstract.All2, Abstract.All_df, Abstract.All_df.Word)
         })
