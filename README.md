@@ -95,9 +95,6 @@ Highlight word in DT in shiny based on regex
 
 [https://newbedev.com/highlight-word-in-dt-in-shiny-based-on-regex](https://newbedev.com/highlight-word-in-dt-in-shiny-based-on-regex)
 
-如何删除R中字符串中的所有特殊字符？
-
-[https://cloud.tencent.com/developer/ask/44882](https://cloud.tencent.com/developer/ask/44882)
 
 **Count the Number of Characters (or Bytes or Width)**
 
